@@ -1,10 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
+import { StoreUiSharedModule } from '@nx-festival/store/ui-shared';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +11,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     MatCardModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    StoreUiSharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
