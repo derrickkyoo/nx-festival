@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { getAllGames } from '../fake-api';
 
+import { formatRating } from '@nx-festival/store/util-formatters';
+
 @Component({
   selector: 'nx-festival-root',
   templateUrl: './app.component.html',
@@ -9,4 +11,5 @@ import { getAllGames } from '../fake-api';
 export class AppComponent {
   title = 'store';
   games = getAllGames();
+  formatRating = formatRating;
 }

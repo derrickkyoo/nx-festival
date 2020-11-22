@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-festival/store/ui-shared": ["libs/store/ui-shared/src/index.ts"]
+      "@nx-festival/store/ui-shared": ["libs/store/ui-shared/src/index.ts"],
+      "@nx-festival/store/util-formatters": [
+        "libs/store/util-formatters/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
