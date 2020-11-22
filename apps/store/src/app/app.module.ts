@@ -10,7 +10,17 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     MatCardModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: 'game/:id',
+          loadChildren: () =>
+            import('@nx-festival/store/feature-game-detail').then(
+              (module) => module.StoreFeatureGameDetailModule
+            ),
+        },
+      ]
+    ),
     StoreUiSharedModule,
   ],
   providers: [],
