@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { formatRating } from '@nx-festival/store/util-formatters';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'nx-festival-game-detail',
@@ -9,12 +11,13 @@ import { map } from 'rxjs/operators';
 })
 export class GameDetailComponent {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
-  gameId$ = this.route.paramMap
+  game$ = this.route.paramMap
     .pipe(
-      map(
-        (params: ParamMap) => params.get('id')
-      )
-  );
+      map((params: ParamMap) => params.get('id')),
+      switchMap(id => this.http.get<any>(`api/games/${id}`))
+    );
+
+    formatRating = formatRating;
 }
