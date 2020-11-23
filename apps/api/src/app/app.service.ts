@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { IGame } from '@nx-festival/util-interface';
 
-const games = [
+const games : IGame[] = [
   {
     id: 'settlers-in-the-can',
     name: 'Settlers in the Can',

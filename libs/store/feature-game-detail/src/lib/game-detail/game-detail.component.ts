@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { formatRating } from '@nx-festival/store/util-formatters';
+import { IGame } from '@nx-festival/util-interface';
 import { map, switchMap } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +17,7 @@ export class GameDetailComponent {
   game$ = this.route.paramMap
     .pipe(
       map((params: ParamMap) => params.get('id')),
-      switchMap(id => this.http.get<any>(`api/games/${id}`))
+      switchMap(id => this.http.get<IGame>(`api/games/${id}`))
     );
 
     formatRating = formatRating;

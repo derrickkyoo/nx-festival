@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { formatRating } from '@nx-festival/store/util-formatters';
+import { IGame } from '@nx-festival/util-interface'
 
 @Component({
   selector: 'nx-festival-root',
@@ -12,5 +13,5 @@ export class AppComponent {
 
   title = 'store';
   formatRating = formatRating;
-  games = this.http.get<any>('/api/games');
+  games = this.http.get<IGame[]>('/api/games');
 }
